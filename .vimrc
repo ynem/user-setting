@@ -1,3 +1,4 @@
+execute pathogen#infect()
 runtime macros/matchit.vim
 let mapleader = "\<Space>"
 filetype plugin indent on
