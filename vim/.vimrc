@@ -1,3 +1,4 @@
+execute pathogen#infect()
 runtime macros/matchit.vim
 let mapleader = "\<Space>"
 filetype plugin indent on
@@ -43,15 +44,20 @@ augroup format-unix
     autocmd!
     autocmd BufRead *.php,*.js,*.html,*.htm e ++ff=unix | syntax enable
 augroup END
+augroup format-dos
+    autocmd!
+    autocmd BufRead *.bas,*.cls,*.frm e ++enc=sjis ++ff=dos | set filetype=basic | syntax enable
+augroup END
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
+nnoremap / /\v
 nnoremap <leader>j `m
 nnoremap <leader>J `M
-nnoremap <leader>w :w<cr>
-nnoremap <leader>E :e!<cr>
-nnoremap <leader>Q :qall!<cr>
-nnoremap <leader>sh :sh<cr>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>E :e!<CR>
+nnoremap <leader>Q :qall!<CR>
+nnoremap <leader>S :sh<CR>
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
@@ -61,7 +67,11 @@ nnoremap <silent> ]a :next<CR>
 nnoremap <silent> [A :first<CR>
 nnoremap <silent> ]A :last<CR>
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
-nnoremap & :&&<CR>
+nnoremap <silent> <leader>N :set number!<CR>
+nnoremap <silent> <leader>n :set relativenumber!<CR>
+nnoremap <leader>s :%s///g<C-f>hhi
+vnoremap <leader>s :s///g<C-f>hhi
+noremap & :&&<CR>
 xnoremap & :&&<CR>
 inoremap jk <esc>
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
