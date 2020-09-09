@@ -52,6 +52,8 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 nnoremap / /\v
+nnoremap _ ddkP
+nnoremap - ddp
 nnoremap <leader>j `m
 nnoremap <leader>J `M
 nnoremap <leader>w :w<CR>
