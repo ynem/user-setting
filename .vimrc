@@ -59,7 +59,6 @@ nnoremap <leader>J `M
 nnoremap <leader>w :w<CR>
 nnoremap <leader>E :e!<CR>
 nnoremap <leader>Q :qall!<CR>
-nnoremap <leader>S :sh<CR>
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
@@ -71,8 +70,11 @@ nnoremap <silent> ]A :last<CR>
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 nnoremap <silent> <leader>N :set number!<CR>
 nnoremap <silent> <leader>n :set relativenumber!<CR>
-nnoremap <leader>s :%s///g<C-f>hhi
-vnoremap <leader>s :s///g<C-f>hhi
+nnoremap <leader>r :let @0 = ""<Left>
+nnoremap <leader>s :call ReplaceInBuf()<CR>
+vnoremap <leader>s :<C-u>call ReplaceInVisual()<CR>
+nnoremap <leader>S :%s///g<C-f>hhi
+vnoremap <leader>S :s///g<C-f>hhi
 noremap & :&&<CR>
 xnoremap & :&&<CR>
 inoremap jk <esc>
