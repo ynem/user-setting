@@ -56,6 +56,8 @@ nnoremap _ ddkP
 nnoremap - ddp
 nnoremap <leader>j `m
 nnoremap <leader>J `M
+nnoremap <leader>l `l
+nnoremap <leader>L `L
 nnoremap <leader>w :w<CR>
 nnoremap <leader>E :e!<CR>
 nnoremap <leader>Q :qall!<CR>
